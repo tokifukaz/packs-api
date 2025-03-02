@@ -1,0 +1,55 @@
+services:
+
+  packs-api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: builder
+    container_name: packs-api
+    environment:
+      MONGODB_URI: mongodb://admin:admin@mongodb:27017
+      MONGODB_DATABASE_NAME: packs-api
+    command:
+      - "/bin/sh"
+      - "-c"
+      - "go mod download && make build && /app/packs-api"
+    ports:
+      - "8001:8001"
+    depends_on:
+      - mongodb
+
+  packs-ui:
+    build:
+      context: ./packs-ui
+      dockerfile: Dockerfile
+      target: builder
+    container_name: packs-ui
+    environment:
+      REACT_APP_API_URL: http://localhost:8001
+    command:
+      - "/bin/sh"
+      - "-c"
+      - "npm install && npm start"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - packs-api
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    restart: always
+
+volumes:
+  mongodb-data:
+
+networks:
+  default:
+
