@@ -25,13 +25,13 @@ The application consists of three main components: frontend, backend, and databa
   - **Response**:
     ```201 Created```
 
-- On the **frontend**, users input the item quantity, pack sizes and click **Add Order**.
+- On the **frontend**, users input the items quantity, pack sizes and click **Add Order**.
 - A **request** is sent to the server, which validates the order:
-    - Ensures the order quantity is greater than zero.
-    - If the order is invalid (empty or erroneous), the server responds with an **error**.
+    - Ensures the items quantity is greater than zero.
+    - If the order is invalid, the server responds with an **error**.
 - For valid orders:
     - The server calculates the **optimal number of packs** required to fulfill the order.
-    - The order, along with shipping details, is saved to the **database**.
+    - The order is saved to the **database**.
     - A **confirmation** with order details is returned to the frontend.
 
 ## 2. Retrieving Orders
