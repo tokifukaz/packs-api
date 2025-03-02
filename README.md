@@ -98,6 +98,16 @@ When finished, shut down the application by running:
 docker-compose down
 ```
 
-### Sample page 
+### 6. Run Tests
+To run tests, use this command:
+
+```sh
+make test
+```
+
+## Sample page 
 <img width="800" alt="sample-ui" src="https://github.com/user-attachments/assets/8e93c27c-fa90-47a9-ab29-3249b71a1f1b" />
 
+## To Do
+- Add integration tests for repository layer
+- Add authentication/authorization
