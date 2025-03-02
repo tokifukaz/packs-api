@@ -89,8 +89,9 @@ docker-compose ps
 
 ### 4. Access the Application
 Visit the provided link to continue using the application.
+http://localhost:3000
 
-5. Stop the Application
+### 5. Stop the Application
 When finished, shut down the application by running:
 
 ```sh
