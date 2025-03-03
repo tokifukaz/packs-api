@@ -83,9 +83,9 @@ docker-compose ps
 ```
 
 ### 3. Set Up the Database
-- Connect to MongoDB.
-- Create a database named packs-api.
-- Add a collection called orders.
+- Connect to MongoDB `mongodb://admin:admin@localhost:27017/`.
+- Create a database named `packs-api`.
+- Add a collection called `orders`.
 
 ### 4. Access the Application
 Visit the provided link to continue using the application.
